@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Singh - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+        }
+
+        .cursive-sig {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Print optimizations */
+        @media print {
+            body { background-color: white; }
+            .print-hidden { display: none !important; }
+            .shadow-2xl { box-shadow: none !important; }
+        }
+    </style>
+</head>
+<body class="py-8 px-4 flex justify-center text-slate-800">
+
+    <div class="fixed top-4 right-4 flex gap-4 print-hidden z-50">
+        <button onclick="downloadPDF()" id="downloadBtn" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg shadow-lg transition-colors font-medium text-sm">
+            <i class="ph ph-download-simple text-lg"></i>
+            <span id="btnText">Download PDF</span>
+        </button>
+    </div>
+
+    <div id="resume-document" class="max-w-4xl w-full bg-white shadow-2xl p-10 md:p-14 relative">
+        
+        <header class="border-b-4 border-blue-800 pb-6 mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight uppercase mb-2">
+                Aditya Singh
+            </h1>
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-600 mt-4 text-sm md:text-base">
+                <span class="flex items-center gap-2">
+                    <i class="ph-fill ph-phone text-blue-700 text-lg"></i> +91 8823803377
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="ph-fill ph-envelope-simple text-blue-700 text-lg"></i> bt24mec033@nit.uk.ac.in
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="ph-fill ph-map-pin text-blue-700 text-lg"></i> India
+                </span>
+                <span class="flex items-center gap-2">
+                    <i class="ph-fill ph-linkedin-logo text-blue-700 text-lg"></i> 
+                    <a href="https://www.linkedin.com/in/aditya-singh-169235401/" target="_blank" class="hover:text-blue-800 hover:underline">
+                        linkedin.com/in/aditya-singh-169235401
+                    </a>
+                </span>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            
+            <div class="lg:col-span-2 space-y-8">
+                
+                <section>
+                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-target text-xl"></i> Career Objective
+                    </h2>
+                    <p class="text-slate-700 leading-relaxed text-justify">
+                        Motivated second-year Mechanical Engineering student from National Institute of Technology Uttarakhand seeking a summer training opportunity to gain practical exposure in the engineering industry. Eager to apply theoretical knowledge, enhance technical and problem-solving skills, and learn from real-world industrial environments. Highly interested in design, manufacturing, and emerging technologies.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-graduation-cap text-xl"></i> Education
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-start">
+                                <h3 class="font-bold text-slate-800">B.Tech – Mechanical Engineering</h3>
+                                <span class="text-sm font-semibold text-blue-700 bg-blue-50 px-2 py-1 rounded">2024 – 2028</span>
+                            </div>
+                            <p class="text-slate-600">National Institute of Technology Uttarakhand</p>
+                            <p class="text-sm text-slate-500 italic mt-1">Currently in 2nd Year</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                <p class="text-sm text-slate-500">Class XII</p>
+                                <p class="font-bold text-slate-800">85%</p>
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded border border-slate-100">
+                                <p class="text-sm text-slate-500">Class X</p>
+                                <p class="font-bold text-slate-800">85%</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-folder-open text-xl"></i> Projects & Practical Focus
+                    </h2>
+                    <ul class="list-disc list-inside text-slate-700 space-y-2">
+                        <li>Currently building a strong foundational knowledge base in core mechanical subjects.</li>
+                        <li>Actively seeking to work on practical, real-world engineering projects during summer training to bridge the gap between academic theory and industrial application.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-medal text-xl"></i> Extra-Curricular Activities
+                    </h2>
+                    <ul class="list-disc list-inside text-slate-700 space-y-2">
+                        <li>Active member of the <span class="font-semibold text-slate-800">SAE (Society of Automotive Engineers) India</span> club.</li>
+                        <li>Actively participated in various collegiate, technical, and cultural fests at NIT Uttarakhand.</li>
+                    </ul>
+                </section>
+                
+            </div>
+
+            <div class="space-y-8">
+                
+                <section>
+                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-wrench text-xl"></i> Technical Skills
+                    </h2>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">AutoCAD (Basic)</span>
+                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">CATIA (Basic)</span>
+                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">MS Office Suite</span>
+                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">HTML & CSS</span>
+                        <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium border border-blue-100 flex items-center gap-1">
+                            <i class="ph-fill ph-cpu text-sm"></i> AI Tools & Prompting
+                        </span>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-users text-xl"></i> Soft Skills
+                    </h2>
+                    <ul class="space-y-2">
+                        <li class="flex items-start gap-2 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-sm">Strong problem-solving ability</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-sm">Quick learner</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-sm">Effective communication skills</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-sm">Teamwork and collaboration</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
+                            <span class="text-sm">Adaptability & willingness to learn</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
+                        <i class="ph-fill ph-user text-xl"></i> Personal Details
+                    </h2>
+                    <div class="space-y-3 text-sm text-slate-700">
+                        <div>
+                            <p class="font-semibold text-slate-800">Date of Birth:</p>
+                            <p>28-09-2004</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800">Languages Known:</p>
+                            <p>English, Hindi</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-slate-800">Hobbies:</p>
+                            <p>Playing Chess, Table Tennis</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t-2 border-slate-200">
+            <h3 class="font-bold text-slate-800 mb-2">Declaration</h3>
+            <p class="text-slate-600 text-sm italic mb-8">
+                I hereby declare that the above information is true to the best of my knowledge.
+            </p>
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mt-12 text-slate-800 font-medium gap-8">
+                <div class="space-y-4">
+                    <p>Date: <span class="border-b border-slate-400 px-2 inline-block">April 6, 2026</span></p>
+                    <p>Place: <span class="border-b border-slate-400 px-2 inline-block">Khaknar, Burhanpur, MP, India</span></p>
+                </div>
+                <div class="text-center flex flex-col items-center">
+                    
+                    <div class="h-16 flex items-end justify-center mb-1">
+                        <img 
+                            src="signature.png" 
+                            alt="Signature" 
+                            class="max-h-full object-contain"
+                            onerror="this.onerror=null; this.outerHTML='<span class=\'cursive-sig text-3xl text-slate-800 leading-none\'>Aditya Singh</span>';" 
+                        />
+                    </div>
+                    
+                    <div class="border-b-2 border-slate-800 w-48 mb-2"></div>
+                    <p>( Aditya Singh )</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-xs text-slate-400">
+                    * This CV was created with assistance from AI, demonstrating modern adaptability.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const btnText = document.getElementById('btnText');
+            const originalText = btnText.innerText;
+            btnText.innerText = "Generating...";
+            
+            const element = document.getElementById('resume-document');
+            
+            const opt = {
+                margin:       [0.4, 0, 0.4, 0],
+                filename:     'Aditya_Singh_Resume.pdf',
+                image:        { type: 'jpeg', quality: 1.0 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true, 
+                    letterRendering: true,
+                    scrollY: 0,
+                    windowWidth: 1024 
+                },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            
+            html2pdf().set(opt).from(element).save().then(() => {
+                btnText.innerText = originalText;
+            }).catch((err) => {
+                console.error("PDF generation failed:", err);
+                btnText.innerText = "Error - Try Again";
+                setTimeout(() => { btnText.innerText = originalText; }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
