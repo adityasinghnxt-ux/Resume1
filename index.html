@@ -20,15 +20,29 @@
             font-family: 'Dancing Script', cursive;
         }
 
+        /* 
+           Strict A4 Sizing using exact pixels (96 DPI).
+           This prevents html2canvas from making scaling errors.
+        */
+        .a4-page {
+            width: 794px;
+            height: 1123px;
+            background: white;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
         /* Print optimizations */
         @media print {
-            body { background-color: white; }
+            body { background-color: white; padding: 0; }
             .print-hidden { display: none !important; }
             .shadow-2xl { box-shadow: none !important; }
+            .a4-page { width: 100%; height: 100%; box-shadow: none; margin: 0; }
         }
     </style>
 </head>
-<body class="py-8 px-4 flex justify-center text-slate-800">
+<!-- Removed flexbox centering here to fix the left-cut bug -->
+<body class="py-8 text-slate-800">
 
     <div class="fixed top-4 right-4 flex gap-4 print-hidden z-50">
         <button onclick="downloadPDF()" id="downloadBtn" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg shadow-lg transition-colors font-medium text-sm">
@@ -37,29 +51,30 @@
         </button>
     </div>
 
-    <div id="resume-document" class="max-w-4xl w-full bg-white shadow-2xl p-10 md:p-14 relative">
+    <!-- Added 'mx-auto' for safe centering that html2canvas understands -->
+    <div id="resume-document" class="a4-page mx-auto shadow-2xl p-10 relative flex flex-col">
         
-        <header class="border-b-4 border-blue-800 pb-6 mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight uppercase mb-2">
+        <header class="border-b-[3px] border-blue-800 pb-4 mb-5">
+            <h1 class="text-3xl font-bold text-slate-900 tracking-tight uppercase mb-1.5">
                 Aditya Singh
             </h1>
-            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-slate-600 mt-4 text-sm md:text-base">
-                <span class="flex items-center gap-2">
-                    <i class="ph-fill ph-phone text-blue-700 text-lg"></i> +91 8823803377
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-slate-600 mt-1 text-xs">
+                <span class="flex items-center gap-1">
+                    <i class="ph-fill ph-phone text-blue-700 text-sm"></i> +91 8823803377
                 </span>
-                <span class="flex items-center gap-2">
-                    <i class="ph-fill ph-envelope-simple text-blue-700 text-lg"></i> 
+                <span class="flex items-center gap-1">
+                    <i class="ph-fill ph-envelope-simple text-blue-700 text-sm"></i> 
                     <a href="mailto:aditya.singh.nxt@gmail.com" class="hover:text-blue-800 hover:underline">aditya.singh.nxt@gmail.com</a>
                 </span>
-                <span class="flex items-center gap-2">
-                    <i class="ph-fill ph-student text-blue-700 text-lg"></i> 
+                <span class="flex items-center gap-1">
+                    <i class="ph-fill ph-student text-blue-700 text-sm"></i> 
                     <a href="mailto:bt24mec033@nit.uk.ac.in" class="hover:text-blue-800 hover:underline">bt24mec033@nit.uk.ac.in</a>
                 </span>
-                <span class="flex items-center gap-2">
-                    <i class="ph-fill ph-map-pin text-blue-700 text-lg"></i> Srinagar Garhwal, India
+                <span class="flex items-center gap-1">
+                    <i class="ph-fill ph-map-pin text-blue-700 text-sm"></i> Srinagar Garhwal, India
                 </span>
-                <span class="flex items-center gap-2">
-                    <i class="ph-fill ph-linkedin-logo text-blue-700 text-lg"></i> 
+                <span class="flex items-center gap-1">
+                    <i class="ph-fill ph-linkedin-logo text-blue-700 text-sm"></i> 
                     <a href="https://www.linkedin.com/in/aditya-singh-169235401/" target="_blank" class="hover:text-blue-800 hover:underline">
                         linkedin.com/in/aditya-singh-169235401
                     </a>
@@ -67,39 +82,40 @@
             </div>
         </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <!-- Main Content Area -->
+        <div class="grid grid-cols-3 gap-6 flex-grow">
             
-            <div class="lg:col-span-2 space-y-8">
+            <div class="col-span-2 space-y-5">
                 
                 <section>
-                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
-                        <i class="ph-fill ph-target text-xl"></i> Career Objective
+                    <h2 class="text-base font-bold text-blue-900 border-b-2 border-slate-200 pb-1 mb-2 flex items-center gap-2">
+                        <i class="ph-fill ph-target text-base"></i> Career Objective
                     </h2>
-                    <p class="text-slate-700 leading-relaxed text-justify">
+                    <p class="text-[13px] text-slate-700 leading-relaxed text-justify">
                         Motivated second-year Mechanical Engineering student from National Institute of Technology Uttarakhand seeking a summer training opportunity to gain practical exposure in the engineering industry. Eager to apply theoretical knowledge, enhance technical and problem-solving skills, and learn from real-world industrial environments. Highly interested in design, manufacturing, and emerging technologies.
                     </p>
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
-                        <i class="ph-fill ph-graduation-cap text-xl"></i> Education
+                    <h2 class="text-base font-bold text-blue-900 border-b-2 border-slate-200 pb-1 mb-2 flex items-center gap-2">
+                        <i class="ph-fill ph-graduation-cap text-base"></i> Education
                     </h2>
-                    <div class="space-y-4">
+                    <div class="space-y-3 text-[13px]">
                         <div>
                             <div class="flex justify-between items-start">
                                 <h3 class="font-bold text-slate-800">B.Tech – Mechanical Engineering</h3>
-                                <span class="text-sm font-semibold text-blue-700 bg-blue-50 px-2 py-1 rounded">2024 – 2028</span>
+                                <span class="text-[11px] font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">2024 – 2028</span>
                             </div>
                             <p class="text-slate-600">National Institute of Technology Uttarakhand</p>
-                            <p class="text-sm text-slate-500 italic mt-1">Currently in 2nd Year</p>
+                            <p class="text-[11px] text-slate-500 italic mt-0.5">Currently in 2nd Year</p>
                         </div>
-                        <div class="grid grid-cols-2 gap-4 mt-4">
-                            <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                <p class="text-sm text-slate-500">Class XII</p>
+                        <div class="grid grid-cols-2 gap-3 mt-2">
+                            <div class="bg-slate-50 p-2 rounded border border-slate-100">
+                                <p class="text-[11px] text-slate-500">Class XII</p>
                                 <p class="font-bold text-slate-800">85%</p>
                             </div>
-                            <div class="bg-slate-50 p-3 rounded border border-slate-100">
-                                <p class="text-sm text-slate-500">Class X</p>
+                            <div class="bg-slate-50 p-2 rounded border border-slate-100">
+                                <p class="text-[11px] text-slate-500">Class X</p>
                                 <p class="font-bold text-slate-800">85%</p>
                             </div>
                         </div>
@@ -107,20 +123,20 @@
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
-                        <i class="ph-fill ph-folder-open text-xl"></i> Projects & Practical Focus
+                    <h2 class="text-base font-bold text-blue-900 border-b-2 border-slate-200 pb-1 mb-2 flex items-center gap-2">
+                        <i class="ph-fill ph-folder-open text-base"></i> Projects & Practical Focus
                     </h2>
-                    <ul class="list-disc list-inside text-slate-700 space-y-2">
+                    <ul class="list-disc list-inside text-[13px] text-slate-700 space-y-1.5 leading-relaxed">
                         <li>Currently building a strong foundational knowledge base in core mechanical subjects.</li>
                         <li>Actively seeking to work on practical, real-world engineering projects during summer training to bridge the gap between academic theory and industrial application.</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
-                        <i class="ph-fill ph-medal text-xl"></i> Extra-Curricular Activities
+                    <h2 class="text-base font-bold text-blue-900 border-b-2 border-slate-200 pb-1 mb-2 flex items-center gap-2">
+                        <i class="ph-fill ph-medal text-base"></i> Extra-Curricular Activities
                     </h2>
-                    <ul class="list-disc list-inside text-slate-700 space-y-2">
+                    <ul class="list-disc list-inside text-[13px] text-slate-700 space-y-1.5 leading-relaxed">
                         <li>Active member of the <span class="font-semibold text-slate-800">SAE (Society of Automotive Engineers) India</span> club.</li>
                         <li>Actively participated in various collegiate, technical, and cultural fests at NIT Uttarakhand.</li>
                     </ul>
@@ -128,67 +144,67 @@
                 
             </div>
 
-            <div class="space-y-8">
+            <div class="space-y-5">
                 
                 <section>
-                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
-                        <i class="ph-fill ph-wrench text-xl"></i> Technical Skills
+                    <h2 class="text-base font-bold text-blue-900 border-b-2 border-slate-200 pb-1 mb-2 flex items-center gap-2">
+                        <i class="ph-fill ph-wrench text-base"></i> Technical Skills
                     </h2>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">AutoCAD (Basic)</span>
-                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">CATIA (Basic)</span>
-                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">MS Office Suite</span>
-                        <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">HTML & CSS</span>
-                        <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium border border-blue-100 flex items-center gap-1">
-                            <i class="ph-fill ph-cpu text-sm"></i> AI Tools & Prompting
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-[11px] font-medium border border-slate-200">AutoCAD (Basic)</span>
+                        <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-[11px] font-medium border border-slate-200">CATIA (Basic)</span>
+                        <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-[11px] font-medium border border-slate-200">MS Office</span>
+                        <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded text-[11px] font-medium border border-slate-200">HTML & CSS</span>
+                        <span class="bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[11px] font-medium border border-blue-100 flex items-center gap-1 w-full mt-1">
+                            <i class="ph-fill ph-cpu text-xs"></i> AI & Prompting
                         </span>
                     </div>
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
-                        <i class="ph-fill ph-users text-xl"></i> Soft Skills
+                    <h2 class="text-base font-bold text-blue-900 border-b-2 border-slate-200 pb-1 mb-2 flex items-center gap-2">
+                        <i class="ph-fill ph-users text-base"></i> Soft Skills
                     </h2>
-                    <ul class="space-y-2">
-                        <li class="flex items-start gap-2 text-slate-700">
-                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span class="text-sm">Strong problem-solving ability</span>
+                    <ul class="space-y-1.5">
+                        <li class="flex items-start gap-1.5 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-0.5 flex-shrink-0 text-sm"></i>
+                            <span class="text-[12px]">Problem-solving</span>
                         </li>
-                        <li class="flex items-start gap-2 text-slate-700">
-                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span class="text-sm">Quick learner</span>
+                        <li class="flex items-start gap-1.5 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-0.5 flex-shrink-0 text-sm"></i>
+                            <span class="text-[12px]">Quick learner</span>
                         </li>
-                        <li class="flex items-start gap-2 text-slate-700">
-                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span class="text-sm">Effective communication skills</span>
+                        <li class="flex items-start gap-1.5 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-0.5 flex-shrink-0 text-sm"></i>
+                            <span class="text-[12px]">Communication skills</span>
                         </li>
-                        <li class="flex items-start gap-2 text-slate-700">
-                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span class="text-sm">Teamwork and collaboration</span>
+                        <li class="flex items-start gap-1.5 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-0.5 flex-shrink-0 text-sm"></i>
+                            <span class="text-[12px]">Teamwork</span>
                         </li>
-                        <li class="flex items-start gap-2 text-slate-700">
-                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-1 flex-shrink-0"></i>
-                            <span class="text-sm">Adaptability & willingness to learn</span>
+                        <li class="flex items-start gap-1.5 text-slate-700">
+                            <i class="ph-fill ph-check-square-offset text-blue-500 mt-0.5 flex-shrink-0 text-sm"></i>
+                            <span class="text-[12px]">Adaptability</span>
                         </li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2 class="text-xl font-bold text-blue-900 border-b-2 border-slate-200 pb-2 mb-4 flex items-center gap-2">
-                        <i class="ph-fill ph-user text-xl"></i> Personal Details
+                    <h2 class="text-base font-bold text-blue-900 border-b-2 border-slate-200 pb-1 mb-2 flex items-center gap-2">
+                        <i class="ph-fill ph-user text-base"></i> Personal Details
                     </h2>
-                    <div class="space-y-3 text-sm text-slate-700">
+                    <div class="space-y-2 text-[12px] text-slate-700">
                         <div>
                             <p class="font-semibold text-slate-800">Date of Birth:</p>
                             <p>28-09-2004</p>
                         </div>
                         <div>
-                            <p class="font-semibold text-slate-800">Languages Known:</p>
+                            <p class="font-semibold text-slate-800">Languages:</p>
                             <p>English, Hindi</p>
                         </div>
                         <div>
                             <p class="font-semibold text-slate-800">Hobbies:</p>
-                            <p>Playing Chess, Table Tennis</p>
+                            <p>Chess, Table Tennis</p>
                         </div>
                     </div>
                 </section>
@@ -196,35 +212,33 @@
             </div>
         </div>
 
-        <div class="mt-12 pt-8 border-t-2 border-slate-200">
-            <h3 class="font-bold text-slate-800 mb-2">Declaration</h3>
-            <p class="text-slate-600 text-sm italic mb-8">
+        <!-- Footer Area pinned to the bottom of the A4 page -->
+        <div class="mt-auto pt-4 border-t-2 border-slate-200">
+            <h3 class="font-bold text-[13px] text-slate-800 mb-1">Declaration</h3>
+            <p class="text-slate-600 text-[11px] italic mb-4">
                 I hereby declare that the above information is true to the best of my knowledge.
             </p>
             
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mt-12 text-slate-800 font-medium gap-8">
-                <div class="space-y-4">
+            <div class="flex justify-between items-end text-slate-800 font-medium text-[12px]">
+                <div class="space-y-1.5">
                     <p>Date: <span class="border-b border-slate-400 px-2 inline-block">April 6, 2026</span></p>
                     <p>Place: <span class="border-b border-slate-400 px-2 inline-block">India</span></p>
                 </div>
                 <div class="text-center flex flex-col items-center">
-                    
-                    <div class="h-16 flex items-end justify-center mb-1">
+                    <div class="h-8 flex items-end justify-center mb-1">
                         <img 
                             src="signature.png" 
                             alt="Signature" 
                             class="max-h-full object-contain"
-                            onerror="this.onerror=null; this.outerHTML='<span class=\'cursive-sig text-3xl text-slate-800 leading-none\'>Aditya Singh</span>';" 
+                            onerror="this.onerror=null; this.outerHTML='<span class=\'cursive-sig text-xl text-slate-800 leading-none\'>Aditya Singh</span>';" 
                         />
                     </div>
-                    
-                    <div class="border-b-2 border-slate-800 w-48 mb-2"></div>
-                   
+                    <div class="border-b-2 border-slate-800 w-32 mb-1"></div>
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <p class="text-xs text-slate-400">
+            <div class="text-center mt-4">
+                <p class="text-[9px] text-slate-400">
                     * This CV was created with assistance from AI, demonstrating modern adaptability.
                 </p>
             </div>
@@ -240,19 +254,18 @@
             
             const element = document.getElementById('resume-document');
             
+            // Simplified settings to prevent layout shifting
             const opt = {
-                margin:       [0.4, 0, 0.4, 0],
+                margin:       0,
                 filename:     'Aditya_Singh_Resume.pdf',
                 image:        { type: 'jpeg', quality: 1.0 },
                 html2canvas:  { 
                     scale: 2, 
                     useCORS: true, 
-                    letterRendering: true,
-                    scrollY: 0,
-                    windowWidth: 1024 
+                    scrollX: 0,
+                    scrollY: 0
                 },
-                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
-                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
             };
             
             html2pdf().set(opt).from(element).save().then(() => {
